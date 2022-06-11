@@ -6,7 +6,7 @@ const route = useRoute();
 const { data, error, pending, refresh } = await useFetch(() =>
     `/discover/movie?api_key=f62f750b70a8ef11dad44670cfb6aa57&page=${route.query.page}`,
     {
-        baseURL: config.SERVER_URL,
+        baseURL: process.env.SERVER_URL,
         method: 'GET',
     });
 
@@ -14,7 +14,7 @@ const { data, error, pending, refresh } = await useFetch(() =>
 
 const { data: g } = await useFetch(() => `/genre/movie/list?api_key=f62f750b70a8ef11dad44670cfb6aa57&language=en-US`,
     {
-        baseURL: config.SERVER_URL,
+        baseURL: process.env.SERVER_URL,
         method: 'GET',
     });
 
